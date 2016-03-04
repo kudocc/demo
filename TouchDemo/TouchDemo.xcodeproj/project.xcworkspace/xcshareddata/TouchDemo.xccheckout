@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3F817DE0-D99B-4BA2-9ADE-CBBD31AE6A3C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TouchDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E2E0095F6DDA5A64956C775BC2F8F6A1597FEB71</key>
+		<string>https://github.com/kudocc/TouchDemo</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TouchDemo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E2E0095F6DDA5A64956C775BC2F8F6A1597FEB71</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kudocc/TouchDemo</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E2E0095F6DDA5A64956C775BC2F8F6A1597FEB71</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E2E0095F6DDA5A64956C775BC2F8F6A1597FEB71</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TouchDemo</string>
+		</dict>
+	</array>
+</dict>
+</plist>
