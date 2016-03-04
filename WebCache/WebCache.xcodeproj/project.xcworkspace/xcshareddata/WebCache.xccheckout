@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2FD31FBD-98EB-4771-B0AA-B56D54B9721F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WebCache</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F4D08D06D6AC49F9DD872CBE3CAA31B3984F4C44</key>
+		<string>https://github.com/kudocc/WebCacheDemo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>WebCache.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F4D08D06D6AC49F9DD872CBE3CAA31B3984F4C44</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kudocc/WebCacheDemo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F4D08D06D6AC49F9DD872CBE3CAA31B3984F4C44</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F4D08D06D6AC49F9DD872CBE3CAA31B3984F4C44</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WebCache</string>
+		</dict>
+	</array>
+</dict>
+</plist>
