@@ -29,6 +29,7 @@
         CGContextFillRect(context, _imageViewOri.bounds);
         CGContextDrawImage(context, _imageViewOri.bounds, imageMaskedRef);
         UIImage *imageMasked = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
         _imageViewResult = [[UIImageView alloc] initWithImage:imageMasked];
         [self addSubview:_imageViewResult];
         _imageViewResult.layer.borderColor = [UIColor redColor].CGColor;

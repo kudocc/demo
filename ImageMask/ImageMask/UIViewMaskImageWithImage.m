@@ -37,6 +37,7 @@
         CGRect rectEllipse = CGRectInset(_imageViewOri.bounds, 10.0, 10.0);
         CGContextStrokeEllipseInRect(context, rectEllipse);
         UIImage *imageMask = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
         _imageViewMask = [[UIImageView alloc] initWithImage:imageMask];
         [self addSubview:_imageViewMask];
         _imageViewMask.layer.borderColor = [UIColor redColor].CGColor;

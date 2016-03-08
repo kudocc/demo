@@ -34,6 +34,7 @@
         CGContextAddLineToPoint(context, 0.0, _imageViewOri.bounds.size.height);
         CGContextStrokePath(context);
         UIImage *imageMask = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
         _imageViewMask = [[UIImageView alloc] initWithImage:imageMask];
         [self addSubview:_imageViewMask];
         _imageViewMask.layer.borderColor = [UIColor redColor].CGColor;
@@ -45,6 +46,7 @@
         CGContextClipToMask(context, _imageViewOri.bounds, imageMask.CGImage);
         CGContextFillEllipseInRect(context, _imageViewOri.bounds);
         UIImage *imageMasked = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
         _imageViewResult = [[UIImageView alloc] initWithImage:imageMasked];
         [self addSubview:_imageViewResult];
         _imageViewResult.layer.borderColor = [UIColor redColor].CGColor;
