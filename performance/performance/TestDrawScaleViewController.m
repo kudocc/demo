@@ -24,6 +24,13 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
+    /**
+     
+     test1 原始图片如果像素不够高，即使scale设置的高，画上去也还是不清晰；
+     test2 原始图片像素够高，scale设置的低，画上去不清晰。
+     
+     */
+    
     // img is 132 * 132 px image
     UIImage *img = [UIImage imageNamed:@"avatar"];
     

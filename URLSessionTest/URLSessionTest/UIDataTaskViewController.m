@@ -22,6 +22,13 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+    if ([req respondsToSelector:@selector(setHTTPBodyStream:)]) {
+        NSLog(@"req respondsToSelector:@selector(setHTTPBodyStream:)");
+    } else {
+        NSLog(@"req can't respondsToSelector:@selector(setHTTPBodyStream:)");
+    }
+    
     _operationQueue = [[NSOperationQueue alloc] init];
     
     
@@ -94,7 +101,7 @@ didCompleteWithError:(nullable NSError *)error {
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
 didReceiveResponse:(NSURLResponse *)response
  completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%@, response:%@", NSStringFromSelector(_cmd), response);
     
     _mData = [[NSMutableData alloc] init];
     

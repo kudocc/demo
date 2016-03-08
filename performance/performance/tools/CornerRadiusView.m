@@ -138,7 +138,7 @@
     
     // draw border
     if (_borderWidth > 0.0 && _borderColor) {
-        UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:_cornerRadius];
+        UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:UIEdgeInsetsInsetRect(self.bounds, UIEdgeInsetsMake(_borderWidth/2, _borderWidth/2, _borderWidth/2, _borderWidth/2)) cornerRadius:_cornerRadius];
         path.lineWidth = _borderWidth;
         [path stroke];
     }

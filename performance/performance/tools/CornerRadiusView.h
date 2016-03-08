@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
-// 对CPU要求很高，iPhone6表现良好；iPhone4卡的一逼。
-// 这个方法相当于使用CPU换GPU
-// 使用CornerRadiusView相比UIImageView耗费内存也会更多
-
 /**
  As set `cornerRadius` of `UIView.layer` and `maskToBounds` reduce performance seriously, so we draw it by ourselves
  

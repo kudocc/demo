@@ -8,6 +8,7 @@
 
 #import "TableViewPerformanceViewController.h"
 #import "CornerRadiusView.h"
+#import "UIImage+CornerRadius.h"
 
 @interface ImageViewPerformanceCell : UITableViewCell
 
@@ -19,26 +20,70 @@
 
 @implementation ImageViewPerformanceCell
 
++ (CGFloat)cellHeight {
+    return 88.0;
+}
+
++ (CGFloat)imageHeight {
+    return 66.0;
+}
+
 - (UIView *)createImageView {
-#if 0
-    CornerRadiusView *v = [[CornerRadiusView alloc] initWithFrame:CGRectZero];
+    
+    /**
+     
+     图片的质量貌似还是UIImageView好一些，CornerRadiusView上的比较模糊，原因未知
+     
+     */
+    
+#define Performance 3
+    
+#if Performance == 1
+    /**
+     在iPhone4上帧率在20-30左右，与是否设置cornerRadius无关
+     在iPhone6上帧率接近60；增加到3个imageView，接近60；
+     
+     总结下来，CornerRadiusView比较耗cpu，所以在cpu差的机器上表现不好
+     */
+    CornerRadiusView *v = [[CornerRadiusView alloc] initWithFrame:CGRectMake(0.0, 0.0, [self.class imageHeight], [self.class imageHeight])];
     v.backgroundColor = [UIColor clearColor];
-    v.image = [UIImage imageNamed:@"avatar_ori"];
     v.contentMode = UIViewContentModeScaleToFill;
     v.cornerRadius = 10.0;
     v.borderWidth = 1.0;
     v.borderColor = [UIColor blackColor];
-#else
-    UIImageView *v = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"avatar_ori"]];
+#elif Performance == 2
+    /**
+     在iPhone4上帧率30左右；如果masksToBounds为NO，帧率在50以上。
+     在iPhone6上接近60；如果masksToBounds为NO，接近60。表现太好，增加到3个imageView，如果masksToBounds为YES，帧率接近40；masksToBounds为NO，帧率接近60。
+     */
+    UIImageView *v = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, [self.class imageHeight], [self.class imageHeight])];
     v.layer.cornerRadius = 10.0;
     v.layer.masksToBounds = YES;
+    v.layer.borderColor = [UIColor blackColor].CGColor;
+    v.layer.borderWidth = 1.0;
+#else
+    /**
+     在图的imageView上覆盖一个圆角的图
+     在iPhone4开三个imageView，帧率在50以上，效果杠杠滴
+     */
+    
+    UIImageView *v = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, [self.class imageHeight], [self.class imageHeight])];
+    UIImage *image = [UIImage imageWithSize:CGSizeMake([self.class imageHeight], [self.class imageHeight])
+                               cornerRadius:10.0
+                            backgroundColor:[UIColor whiteColor]
+                                borderWidth:1.0 borderColor:[UIColor blackColor]];
+    UIImageView *imageViewMask = [[UIImageView alloc] initWithImage:image];
+    [v addSubview:imageViewMask];
 #endif
+    
+    
     return v;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
         _imgView1 = [self createImageView];
         [self.contentView addSubview:_imgView1];
         
@@ -53,9 +98,9 @@
 
 - (void)layoutSubviews {
     CGSize s = self.bounds.size;
-    _imgView1.frame = CGRectMake(0.0, 0.0, s.height, s.height);
-    _imgView2.frame = CGRectMake(s.height + 10.0, 0.0, s.height, s.height);
-    _imgView3.frame = CGRectMake(s.height + 10.0 + s.height + 10.0, 0.0, s.height, s.height);
+    _imgView1.frame = CGRectMake(0.0, 10.0, _imgView1.bounds.size.height, _imgView1.bounds.size.height);
+    _imgView2.frame = CGRectMake(s.height + 10.0, 10.0, _imgView2.bounds.size.height, _imgView2.bounds.size.height);
+    _imgView3.frame = CGRectMake(s.height + 10.0 + s.height + 10.0, 10.0, _imgView3.bounds.size.height, _imgView3.bounds.size.height);
 }
 
 @end
@@ -83,7 +128,7 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 66.0;
+    return [ImageViewPerformanceCell cellHeight];
 }
 
 #pragma mark - UITableViewDataSource
@@ -105,14 +150,18 @@
         }
     }
     
+    NSInteger i = indexPath.row % 11;
+    NSString *imageName = [NSString stringWithFormat:@"image%@.jpg", @(i)];
+    UIImage *image = [UIImage imageNamed:imageName];
+    
     if ([cell.imgView1 respondsToSelector:@selector(setImage:)]) {
-        [cell.imgView1 performSelector:@selector(setImage:) withObject:[UIImage imageNamed:@"avatar_ori"]];
+        [cell.imgView1 performSelector:@selector(setImage:) withObject:image];
     }
     if ([cell.imgView2 respondsToSelector:@selector(setImage:)]) {
-        [cell.imgView2 performSelector:@selector(setImage:) withObject:[UIImage imageNamed:@"avatar_ori"]];
+        [cell.imgView2 performSelector:@selector(setImage:) withObject:image];
     }
     if ([cell.imgView3 respondsToSelector:@selector(setImage:)]) {
-        [cell.imgView3 performSelector:@selector(setImage:) withObject:[UIImage imageNamed:@"avatar_ori"]];
+        [cell.imgView3 performSelector:@selector(setImage:) withObject:image];
     }
     return cell;
 }

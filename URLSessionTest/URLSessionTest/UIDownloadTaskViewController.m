@@ -32,10 +32,15 @@
                                                           delegate:self
                                                      delegateQueue:_operationQueue];
     
-    NSURL *urlHtml = [NSURL URLWithString:@"http://www.baidu.com"];
-//    NSURL *urlFile = [NSURL URLWithString:@"http://images.ali213.net/picfile/pic/2013/03/01/927_66.jpg"];
-    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:urlHtml];
+    // 经测试，NSURLSessionDownloadTask不会回调`NSURLSessionDataDelegate`中的方法
+//    NSURL *urlHtml = [NSURL URLWithString:@"http://www.baidu.com"];
+    NSURL *urlFile = [NSURL URLWithString:@"http://images.ali213.net/picfile/pic/2013/03/01/927_66.jpg"];
+    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:urlFile];
     [downloadTask resume];
+    
+    // Test invalidate with two methods
+//    [session invalidateAndCancel];
+//    [session finishTasksAndInvalidate];
 }
 
 #pragma mark - NSURLSessionDelegate

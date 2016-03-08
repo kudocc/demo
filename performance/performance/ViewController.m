@@ -25,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _arrayTitle = @[@"Test clipToMask", @"Test missaligned", @"Test blend", @"Test tools", @"Test draw scale"];
+    _arrayTitle = @[@"Test clipToMask", @"Test draw scale", @"Test missaligned", @"Test blend", @"Test tools"];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:tableView];
@@ -51,7 +51,7 @@
             vc = [[TableViewPerformanceViewController alloc] init];
             break;
         case 1:
-            vc = [[TestMissalignedViewController alloc] init];
+            vc = [[TestDrawScaleViewController alloc] init];
             break;
         case 2:
             vc = [[TestBlendViewController alloc] init];
@@ -60,7 +60,7 @@
             vc = [[TestToolsViewController alloc] init];
             break;
         case 4:
-            vc = [[TestDrawScaleViewController alloc] init];
+            vc = [[TestMissalignedViewController alloc] init];
             break;
         default:
             break;
