@@ -18,6 +18,7 @@
 		A758BF061C4E0095006CFA05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A758BF051C4E0095006CFA05 /* Assets.xcassets */; };
 		A758BF091C4E1BAF006CFA05 /* TestBlendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A758BF081C4E1BAF006CFA05 /* TestBlendViewController.m */; };
 		A758BF0C1C4E1BF6006CFA05 /* TestMissalignedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A758BF0B1C4E1BF6006CFA05 /* TestMissalignedViewController.m */; };
+		A7629B921C8FB9BD00CC32B9 /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = A7629B911C8FB9BD00CC32B9 /* UIView+CornerRadius.m */; };
 		A76474F11C8E9E3B00ED2EC3 /* UIImage+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = A76474F01C8E9E3B00ED2EC3 /* UIImage+CornerRadius.m */; };
 		A7841B211C509ED300CE0F0C /* CornerRadiusView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7841B201C509ED300CE0F0C /* CornerRadiusView.m */; };
 		A7841B241C50D10600CE0F0C /* TestToolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7841B231C50D10600CE0F0C /* TestToolsViewController.m */; };
@@ -70,6 +71,8 @@
 		A758BF081C4E1BAF006CFA05 /* TestBlendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBlendViewController.m; sourceTree = "<group>"; };
 		A758BF0A1C4E1BF6006CFA05 /* TestMissalignedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMissalignedViewController.h; sourceTree = "<group>"; };
 		A758BF0B1C4E1BF6006CFA05 /* TestMissalignedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMissalignedViewController.m; sourceTree = "<group>"; };
+		A7629B901C8FB9BD00CC32B9 /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+CornerRadius.h"; path = "tools/UIView+CornerRadius.h"; sourceTree = "<group>"; };
+		A7629B911C8FB9BD00CC32B9 /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+CornerRadius.m"; path = "tools/UIView+CornerRadius.m"; sourceTree = "<group>"; };
 		A76474EF1C8E9E3B00ED2EC3 /* UIImage+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+CornerRadius.h"; path = "tools/UIImage+CornerRadius.h"; sourceTree = "<group>"; };
 		A76474F01C8E9E3B00ED2EC3 /* UIImage+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CornerRadius.m"; path = "tools/UIImage+CornerRadius.m"; sourceTree = "<group>"; };
 		A7841B1F1C509ED300CE0F0C /* CornerRadiusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CornerRadiusView.h; path = tools/CornerRadiusView.h; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				A7AC614C1C51D7A1005B8D43 /* CornerRadiusView+WebCache.m */,
 				A76474EF1C8E9E3B00ED2EC3 /* UIImage+CornerRadius.h */,
 				A76474F01C8E9E3B00ED2EC3 /* UIImage+CornerRadius.m */,
+				A7629B901C8FB9BD00CC32B9 /* UIView+CornerRadius.h */,
+				A7629B911C8FB9BD00CC32B9 /* UIView+CornerRadius.m */,
 				A7AC61511C520FD7005B8D43 /* TestView.h */,
 				A7AC61521C520FD7005B8D43 /* TestView.m */,
 			);
@@ -410,6 +415,7 @@
 				A7841B241C50D10600CE0F0C /* TestToolsViewController.m in Sources */,
 				A758BF091C4E1BAF006CFA05 /* TestBlendViewController.m in Sources */,
 				A758BECD1C4DDD0A006CFA05 /* main.m in Sources */,
+				A7629B921C8FB9BD00CC32B9 /* UIView+CornerRadius.m in Sources */,
 				A758BF001C4DDDC3006CFA05 /* TableViewPerformanceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

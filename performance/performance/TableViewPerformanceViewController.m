@@ -8,7 +8,7 @@
 
 #import "TableViewPerformanceViewController.h"
 #import "CornerRadiusView.h"
-#import "UIImage+CornerRadius.h"
+#import "UIView+CornerRadius.h"
 
 @interface ImageViewPerformanceCell : UITableViewCell
 
@@ -68,12 +68,7 @@
      */
     
     UIImageView *v = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, [self.class imageHeight], [self.class imageHeight])];
-    UIImage *image = [UIImage imageWithSize:CGSizeMake([self.class imageHeight], [self.class imageHeight])
-                               cornerRadius:10.0
-                            backgroundColor:[UIColor whiteColor]
-                                borderWidth:1.0 borderColor:[UIColor blackColor]];
-    UIImageView *imageViewMask = [[UIImageView alloc] initWithImage:image];
-    [v addSubview:imageViewMask];
+    [v cornerRadius_addCornerRadius:10.0 backgroundColor:[UIColor whiteColor]];
 #endif
     
     
