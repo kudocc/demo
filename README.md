@@ -21,12 +21,14 @@ TouchDemo in WWDC 2014 session 235 Advanced scrollviews and touch handling techn
 
 performance gives a way to solve the problem that `layer.masksToBounds` causes offscreen rendering. Comparing to drawing the whole content in `drawRect:` method, creating another image mask view and add it as subview is more efficient.
 
-The category `UIView+CornerRadius` helps add a `UIImageView` mask to the receiver, the result like use `layer.corderRadius = cornerRadius; layer.masksToBounds = YES;`
+The category `UIView+CornerRadius` helps add a `UIImageView` mask to the receiver, the result like use 
+  layer.corderRadius = cornerRadius;
+  layer.masksToBounds = YES;
 
-There're two method in the category.
+There're two methods in the category.
  
-`- (void)cornerRadius_addCornerRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor;`
-`- (void)cornerRadius_addCornerRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;`
+ - (void)cornerRadius_addCornerRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor;
+ - (void)cornerRadius_addCornerRadius:(CGFloat)radius backgroundColor:(UIColor *)bgColor borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
 
 There is a example in `TableViewPerformanceViewController.m`
 
