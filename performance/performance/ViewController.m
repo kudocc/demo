@@ -10,12 +10,12 @@
 #import "TableViewPerformanceViewController.h"
 #import "TestMissalignedViewController.h"
 #import "TestBlendViewController.h"
-#import "TestToolsViewController.h"
 #import "TestDrawScaleViewController.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *arrayTitle;
+@property (nonatomic, strong) NSArray *arrayClass;
 
 @end
 
@@ -25,7 +25,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _arrayTitle = @[@"Test clipToMask", @"Test draw scale", @"Test missaligned", @"Test blend", @"Test tools"];
+    _arrayTitle = @[@"Test clipToMask", @"Test draw scale", @"Test missaligned", @"Test blend"];
+    _arrayClass = @[[TableViewPerformanceViewController class],
+                    [TestDrawScaleViewController class],
+                    [TestBlendViewController class],
+                    [TestMissalignedViewController class]];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:tableView];
@@ -44,27 +48,9 @@
     return 64.0;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {    
-    UIViewController *vc = nil;
-    switch (indexPath.row) {
-        case 0:
-            vc = [[TableViewPerformanceViewController alloc] init];
-            break;
-        case 1:
-            vc = [[TestDrawScaleViewController alloc] init];
-            break;
-        case 2:
-            vc = [[TestBlendViewController alloc] init];
-            break;
-        case 3:
-            vc = [[TestToolsViewController alloc] init];
-            break;
-        case 4:
-            vc = [[TestMissalignedViewController alloc] init];
-            break;
-        default:
-            break;
-    }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Class class = _arrayClass[indexPath.row];
+    UIViewController *vc = (UIViewController *)[[class alloc] init];
     vc.title = _arrayTitle[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
