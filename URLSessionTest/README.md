@@ -1,4 +1,4 @@
-# Set up a http server
+# Set up a http server with Basic auth and HTTPS support
 
 # Basic auth
 
@@ -85,13 +85,9 @@ Then I add a user and password using command `htpasswd -c /usr/kudocc/passwords 
 
 Restart the apache with `sudo apachectl graceful`
 
-Done
+Finish set up server with Basic support!
 
-# what I want to know
-
-What I want to know is : if I add basic in http header, would I receive a challenge from server ? Let's have a try.
-
-1. I don't set username:password in http header, then I receive a challenge from server.
+1. I don't set username:password in http header, then I receive a challenge from server, this is response header.
 
 ```
 Connection = "Keep-Alive";
@@ -122,7 +118,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 }
 ```
 
-Success.
+What I want to know is : if I add authorization header in the first request, would I receive a challenge from server ? Let's have a try.
 
 2. I set Authorization header in http header field with user name and password, then we don't receive any challenge.
 
