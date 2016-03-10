@@ -1,6 +1,11 @@
-# Set up a http server with Basic auth and HTTPS support
+# Set up a http server with Basic authentication and HTTPS support
 
-# Basic auth
+1. Nowadays I'm reading the source code of AFNetworking, I found that the delegate of `NSURLSession` only handle server trust authentication challenge(`NSURLAuthenticationMethodServerTrust`). I want to find out how it handle basic authentication.
+2. I want to set up a HTTPS server to help me learn the priciples in HTTPS.
+
+# Basic authentication
+
+Reference from the two links. [link1](http://httpd.apache.org/docs/current/howto/auth.html) [link2](http://openwetware.org/wiki/Apache_basic_authentication)
 
 Go to `/etc/apache2`, edit httpd.conf file.
 
@@ -144,3 +149,6 @@ What I want to know is : if I add authorization header in the first request, wou
 ```
 
 Done!
+
+# Set up HTTPS server
+
