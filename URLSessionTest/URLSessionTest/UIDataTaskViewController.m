@@ -40,7 +40,7 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config
                                                           delegate:self
                                                      delegateQueue:_operationQueue];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://localhost"]];
     [dataTask resume];
 }
 
@@ -50,8 +50,12 @@
     NSLog(@"%@, error:%@", NSStringFromSelector(_cmd), error);
 }
 
-//- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
-// completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * __nullable credential))completionHandler;
+- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
+ completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * __nullable credential))completionHandler {
+    NSLog(@"%@, challenge authenticationMethod method:%@", NSStringFromSelector(_cmd), challenge.protectionSpace.authenticationMethod);
+    
+    completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, challenge.proposedCredential);
+}
 
 //- (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session NS_AVAILABLE_IOS(7_0);
 
@@ -66,9 +70,13 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)response
     completionHandler(request);
 }
 
-//- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
-//didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
-// completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * __nullable credential))completionHandler;
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
+didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
+ completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * __nullable credential))completionHandler {
+    NSLog(@"%@, challenge authenticationMethod method:%@", NSStringFromSelector(_cmd), challenge.protectionSpace.authenticationMethod);
+    
+    completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, challenge.proposedCredential);
+}
 
 //- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
 // needNewBodyStream:(void (^)(NSInputStream * __nullable bodyStream))completionHandler;
