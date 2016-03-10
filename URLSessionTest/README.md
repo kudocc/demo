@@ -152,3 +152,10 @@ Done!
 
 # Set up HTTPS server
 
+1. Today I spend almost a whole day to set up the https server but have no result, I always get the same error. Tommorrow I want to finish it if I have enought time to do it (work may come tomorrow).
+
+If I successfully set up the https server, I would use NSURLSession to send request and see the response, analysis the delegate.
+
+My friend said Niginx is better, I'm consider to go to Niginx......
+
+2. Http function : resume from breakpoint, http header range and tag and so on.
