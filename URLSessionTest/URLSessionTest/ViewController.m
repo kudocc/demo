@@ -7,13 +7,14 @@
 //
 
 #import "ViewController.h"
-#import "UIDataTaskViewController.h"
+#import "DataTaskBasicAuthViewController.h"
+#import "DataTaskHttpsServerAuthViewController.h"
 #import "UIDownloadTaskViewController.h"
-#import "UIUploadTaskViewController.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *arrayTitle;
+@property (nonatomic, strong) NSArray *arrayClass;
 
 @end
 
@@ -23,7 +24,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _arrayTitle = @[@"Test data task", @"Test download task", @"Test upload task"];
+    _arrayTitle = @[@"Basic Authentication", @"HTTPS", @"Test download task"];
+    _arrayClass = @[[DataTaskBasicAuthViewController class],
+                    [DataTaskHttpsServerAuthViewController class],
+                    [UIDownloadTaskViewController class]];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:tableView];
@@ -43,20 +47,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *vc = nil;
-    switch (indexPath.row) {
-        case 0:
-            vc = [[UIDataTaskViewController alloc] init];
-            break;
-        case 1:
-            vc = [[UIDownloadTaskViewController alloc] init];
-            break;
-        case 2:
-            vc = [[UIUploadTaskViewController alloc] init];
-            break;
-        default:
-            break;
-    }
+    Class class = _arrayClass[indexPath.row];
+    UIViewController *vc = (UIViewController *)[[class alloc] init];
     vc.title = _arrayTitle[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }

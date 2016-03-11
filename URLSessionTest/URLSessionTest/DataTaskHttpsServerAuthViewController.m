@@ -1,14 +1,17 @@
 //
-//  UIDataTaskViewController.m
+//  DataTaskHttpsServerAuthViewController.m
 //  URLSessionTest
 //
-//  Created by KudoCC on 16/3/4.
+//  Created by KudoCC on 16/3/11.
 //  Copyright © 2016年 KudoCC. All rights reserved.
 //
 
-#import "UIDataTaskViewController.h"
+#import "DataTaskHttpsServerAuthViewController.h"
+#import "AFSecurityPolicy.h"
 
-@interface UIDataTaskViewController () <NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
+@interface DataTaskHttpsServerAuthViewController () <NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
+
+@property (nonatomic, strong) AFSecurityPolicy *securityPolicy;
 
 @property (nonatomic, strong) NSURLSessionDataTask *dataTask;
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
@@ -16,31 +19,24 @@
 
 @end
 
-@implementation UIDataTaskViewController
+@implementation DataTaskHttpsServerAuthViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
-    if ([req respondsToSelector:@selector(setHTTPBodyStream:)]) {
-        NSLog(@"req respondsToSelector:@selector(setHTTPBodyStream:)");
-    } else {
-        NSLog(@"req can't respondsToSelector:@selector(setHTTPBodyStream:)");
-    }
+    // you can replace it with https://github.com and so on.
+    NSString *strURL = @"https://localhost";
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:strURL]];
     
     _operationQueue = [[NSOperationQueue alloc] init];
     
-    
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     config.timeoutIntervalForRequest = 15.0;
-    // 试试NO，然后关闭wifi
-    config.allowsCellularAccess = YES;
-    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config
                                                           delegate:self
                                                      delegateQueue:_operationQueue];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"http://localhost"]];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:req];
     [dataTask resume];
 }
 
@@ -57,8 +53,6 @@
     completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, challenge.proposedCredential);
 }
 
-//- (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session NS_AVAILABLE_IOS(7_0);
-
 #pragma mark - NSURLSessionTaskDelegate
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
@@ -73,18 +67,31 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)response
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
 didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
  completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * __nullable credential))completionHandler {
-    NSLog(@"%@, challenge authenticationMethod method:%@", NSStringFromSelector(_cmd), challenge.protectionSpace.authenticationMethod);
+    NSLog(@"%@, challenge authenticationMethod method:%@, req:%@", NSStringFromSelector(_cmd), challenge.protectionSpace.authenticationMethod, task.originalRequest.allHTTPHeaderFields);
     
-    completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, challenge.proposedCredential);
+    NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+    __block NSURLCredential *credential = nil;
+    
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+        if ([self.securityPolicy evaluateServerTrust:challenge.protectionSpace.serverTrust
+                                           forDomain:challenge.protectionSpace.host]) {
+            credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+            if (credential) {
+                disposition = NSURLSessionAuthChallengeUseCredential;
+            } else {
+                disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+            }
+        } else {
+            disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
+        }
+    } else {
+        disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+    }
+    
+    if (completionHandler) {
+        completionHandler(disposition, credential);
+    }
 }
-
-//- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
-// needNewBodyStream:(void (^)(NSInputStream * __nullable bodyStream))completionHandler;
-
-//- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
-//   didSendBodyData:(int64_t)bytesSent
-//    totalBytesSent:(int64_t)totalBytesSent
-//totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend;
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
 didCompleteWithError:(nullable NSError *)error {

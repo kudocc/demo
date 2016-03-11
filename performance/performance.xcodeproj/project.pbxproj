@@ -23,7 +23,6 @@
 		A7841B211C509ED300CE0F0C /* CornerRadiusView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7841B201C509ED300CE0F0C /* CornerRadiusView.m */; };
 		A7AC614D1C51D7A1005B8D43 /* CornerRadiusView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AC614C1C51D7A1005B8D43 /* CornerRadiusView+WebCache.m */; };
 		A7AC61501C51F6CE005B8D43 /* TestDrawScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AC614F1C51F6CE005B8D43 /* TestDrawScaleViewController.m */; };
-		A7AC61531C520FD7005B8D43 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AC61521C520FD7005B8D43 /* TestView.m */; };
 		DB61C3EDFEC4FEAE456890CE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECCC0F924D6F3D85905D715 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -80,8 +79,6 @@
 		A7AC614C1C51D7A1005B8D43 /* CornerRadiusView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CornerRadiusView+WebCache.m"; path = "tools/CornerRadiusView+WebCache.m"; sourceTree = "<group>"; };
 		A7AC614E1C51F6CE005B8D43 /* TestDrawScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestDrawScaleViewController.h; sourceTree = "<group>"; };
 		A7AC614F1C51F6CE005B8D43 /* TestDrawScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDrawScaleViewController.m; sourceTree = "<group>"; };
-		A7AC61511C520FD7005B8D43 /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
-		A7AC61521C520FD7005B8D43 /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,8 +191,6 @@
 				A76474F01C8E9E3B00ED2EC3 /* UIImage+CornerRadius.m */,
 				A7629B901C8FB9BD00CC32B9 /* UIView+CornerRadius.h */,
 				A7629B911C8FB9BD00CC32B9 /* UIView+CornerRadius.m */,
-				A7AC61511C520FD7005B8D43 /* TestView.h */,
-				A7AC61521C520FD7005B8D43 /* TestView.m */,
 			);
 			name = tools;
 			sourceTree = "<group>";
@@ -406,7 +401,6 @@
 				A7841B211C509ED300CE0F0C /* CornerRadiusView.m in Sources */,
 				A7AC61501C51F6CE005B8D43 /* TestDrawScaleViewController.m in Sources */,
 				A76474F11C8E9E3B00ED2EC3 /* UIImage+CornerRadius.m in Sources */,
-				A7AC61531C520FD7005B8D43 /* TestView.m in Sources */,
 				A758BF091C4E1BAF006CFA05 /* TestBlendViewController.m in Sources */,
 				A758BECD1C4DDD0A006CFA05 /* main.m in Sources */,
 				A7629B921C8FB9BD00CC32B9 /* UIView+CornerRadius.m in Sources */,

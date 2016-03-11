@@ -15,9 +15,10 @@
 		A779322F1C893816009BE2D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A779322D1C893816009BE2D2 /* LaunchScreen.storyboard */; };
 		A779323A1C893816009BE2D2 /* URLSessionTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A77932391C893816009BE2D2 /* URLSessionTestTests.m */; };
 		A77932451C893816009BE2D2 /* URLSessionTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A77932441C893816009BE2D2 /* URLSessionTestUITests.m */; };
-		A77932541C89399F009BE2D2 /* UIDataTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A77932531C89399F009BE2D2 /* UIDataTaskViewController.m */; };
 		A77932571C8939B6009BE2D2 /* UIDownloadTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A77932561C8939B6009BE2D2 /* UIDownloadTaskViewController.m */; };
-		A779325A1C8939C7009BE2D2 /* UIUploadTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A77932591C8939C7009BE2D2 /* UIUploadTaskViewController.m */; };
+		A7904A9F1C926B8F00ABC195 /* DataTaskBasicAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7904A9E1C926B8F00ABC195 /* DataTaskBasicAuthViewController.m */; };
+		A7904AA21C926BDB00ABC195 /* DataTaskHttpsServerAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7904AA11C926BDB00ABC195 /* DataTaskHttpsServerAuthViewController.m */; };
+		A7904AA71C92C31200ABC195 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7904AA61C92C31200ABC195 /* AFSecurityPolicy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,12 +55,14 @@
 		A77932401C893816009BE2D2 /* URLSessionTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URLSessionTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77932441C893816009BE2D2 /* URLSessionTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URLSessionTestUITests.m; sourceTree = "<group>"; };
 		A77932461C893816009BE2D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A77932521C89399F009BE2D2 /* UIDataTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDataTaskViewController.h; sourceTree = "<group>"; };
-		A77932531C89399F009BE2D2 /* UIDataTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDataTaskViewController.m; sourceTree = "<group>"; };
 		A77932551C8939B6009BE2D2 /* UIDownloadTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDownloadTaskViewController.h; sourceTree = "<group>"; };
 		A77932561C8939B6009BE2D2 /* UIDownloadTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDownloadTaskViewController.m; sourceTree = "<group>"; };
-		A77932581C8939C7009BE2D2 /* UIUploadTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUploadTaskViewController.h; sourceTree = "<group>"; };
-		A77932591C8939C7009BE2D2 /* UIUploadTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUploadTaskViewController.m; sourceTree = "<group>"; };
+		A7904A9D1C926B8F00ABC195 /* DataTaskBasicAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTaskBasicAuthViewController.h; sourceTree = "<group>"; };
+		A7904A9E1C926B8F00ABC195 /* DataTaskBasicAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTaskBasicAuthViewController.m; sourceTree = "<group>"; };
+		A7904AA01C926BDB00ABC195 /* DataTaskHttpsServerAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTaskHttpsServerAuthViewController.h; sourceTree = "<group>"; };
+		A7904AA11C926BDB00ABC195 /* DataTaskHttpsServerAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTaskHttpsServerAuthViewController.m; sourceTree = "<group>"; };
+		A7904AA51C92C31200ABC195 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		A7904AA61C92C31200ABC195 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +117,14 @@
 				A77932231C893816009BE2D2 /* AppDelegate.m */,
 				A77932251C893816009BE2D2 /* ViewController.h */,
 				A77932261C893816009BE2D2 /* ViewController.m */,
-				A77932521C89399F009BE2D2 /* UIDataTaskViewController.h */,
-				A77932531C89399F009BE2D2 /* UIDataTaskViewController.m */,
+				A7904AA51C92C31200ABC195 /* AFSecurityPolicy.h */,
+				A7904AA61C92C31200ABC195 /* AFSecurityPolicy.m */,
+				A7904A9D1C926B8F00ABC195 /* DataTaskBasicAuthViewController.h */,
+				A7904A9E1C926B8F00ABC195 /* DataTaskBasicAuthViewController.m */,
+				A7904AA01C926BDB00ABC195 /* DataTaskHttpsServerAuthViewController.h */,
+				A7904AA11C926BDB00ABC195 /* DataTaskHttpsServerAuthViewController.m */,
 				A77932551C8939B6009BE2D2 /* UIDownloadTaskViewController.h */,
 				A77932561C8939B6009BE2D2 /* UIDownloadTaskViewController.m */,
-				A77932581C8939C7009BE2D2 /* UIUploadTaskViewController.h */,
-				A77932591C8939C7009BE2D2 /* UIUploadTaskViewController.m */,
 				A77932281C893816009BE2D2 /* Main.storyboard */,
 				A779322B1C893816009BE2D2 /* Assets.xcassets */,
 				A779322D1C893816009BE2D2 /* LaunchScreen.storyboard */,
@@ -285,12 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7904AA71C92C31200ABC195 /* AFSecurityPolicy.m in Sources */,
 				A77932271C893816009BE2D2 /* ViewController.m in Sources */,
+				A7904A9F1C926B8F00ABC195 /* DataTaskBasicAuthViewController.m in Sources */,
 				A77932241C893816009BE2D2 /* AppDelegate.m in Sources */,
-				A779325A1C8939C7009BE2D2 /* UIUploadTaskViewController.m in Sources */,
 				A77932571C8939B6009BE2D2 /* UIDownloadTaskViewController.m in Sources */,
 				A77932211C893815009BE2D2 /* main.m in Sources */,
-				A77932541C89399F009BE2D2 /* UIDataTaskViewController.m in Sources */,
+				A7904AA21C926BDB00ABC195 /* DataTaskHttpsServerAuthViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +520,7 @@
 				A779324B1C893816009BE2D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A779324C1C893816009BE2D2 /* Build configuration list for PBXNativeTarget "URLSessionTestTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +529,7 @@
 				A779324E1C893816009BE2D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A779324F1C893816009BE2D2 /* Build configuration list for PBXNativeTarget "URLSessionTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +538,7 @@
 				A77932511C893816009BE2D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
