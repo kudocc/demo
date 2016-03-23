@@ -9,7 +9,7 @@ There are two sqlite statements:
 
 Let's go:
 
-#1 limit 5, keep the time just after execute sql statement.
+#limit 5, keep the time just after execute sql statement.
 
 ```
 - (NSTimeInterval)testSelect:(FMDatabase *)database {
@@ -62,7 +62,7 @@ The result is :
 
 Indexed table is fast but not as fast as I thought, hmm, what't wrong ? let's move the "keep time" method after all '[resultSet next]' method.
 
-#2 Keep the time at the end
+#Keep the time at the end
 
 The code is 
  
@@ -102,7 +102,7 @@ Wooooow!!! Indexed table is much faster than the table without index.
  2016-03-23 16:30:01.452 sqlite[585:60b] ----------------------------------
 ```
 
-#3 Execute `[result next]` only once.
+#Execute `[result next]` only once.
 
 Modify the code, change `while` to `if`, so we only execute `[result next]` at most once.
 
@@ -115,7 +115,7 @@ Modify the code, change `while` to `if`, so we only execute `[result next]` at m
 
 The indexed table become faster, the reason if ........, see the [link](http://www.sqlite.org/queryplanner.html)
 
-#4 Limit from 5 to 10, use while other than if.
+#Limit from 5 to 10, use while other than if.
 
 ```
  2016-03-23 16:34:19.840 sqlite[604:60b] ----------------------------------
@@ -124,7 +124,7 @@ The indexed table become faster, the reason if ........, see the [link](http://w
  2016-03-23 16:34:19.850 sqlite[604:60b] ----------------------------------
 ```
 
-#5 Limit from 10 to 100, use while.
+#Limit from 10 to 100, use while.
 
 ```
  2016-03-23 16:35:38.800 sqlite[611:60b] ----------------------------------
@@ -135,7 +135,7 @@ The indexed table become faster, the reason if ........, see the [link](http://w
 
 The time of executing in indexed table is almost 10 times than "limit 10".
 
-#6 Limit from 100 to 1000
+#Limit from 100 to 1000
 
 ```
  2016-03-23 16:36:37.763 sqlite[617:60b] ----------------------------------
@@ -144,7 +144,7 @@ The time of executing in indexed table is almost 10 times than "limit 10".
  2016-03-23 16:36:37.772 sqlite[617:60b] ----------------------------------
 ```
 
-#7 Limit 1000, but use if other than while
+#Limit 1000, but use if other than while
 
 ```
  2016-03-23 16:37:47.327 sqlite[624:60b] ----------------------------------
