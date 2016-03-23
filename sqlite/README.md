@@ -1,8 +1,15 @@
 # sqlite
 
-Test on iPhone4，compare the table with index and table without index.
+I want to test the select performance on table with index and table withot index. The test is on iPhone4. The table `downloaded_image_url` has 24852 rows.
 
-#1
+There are two sqlite statements:
+
+1.`select * from downloaded_image_url where image_url=?`
+2.`select * from downloaded_image_url order by image_size desc limit 5`
+
+Let's go:
+
+#1 limit 5, keep the time just after execute sql statement.
 
 ```
 - (NSTimeInterval)testSelect:(FMDatabase *)database {
@@ -52,9 +59,12 @@ The result is :
 2016-03-23 16:27:18.677 sqlite[571:60b] index select 0.002006, sort:0.000264
 2016-03-23 16:27:18.682 sqlite[571:60b] ----------------------------------
 ```
-#2
 
-Put `NSDate *dateAfter = [NSDate date];` after all `[result next];`, the code
+Indexed table is fast but not as fast as I thought, hmm, what't wrong ? let's move the "keep time" method after all '[resultSet next]' method.
+
+#2 Keep the time at the end
+
+The code is 
  
  ```
  - (NSTimeInterval)testSelect:(FMDatabase *)database {
@@ -64,7 +74,6 @@ Put `NSDate *dateAfter = [NSDate date];` after all `[result next];`, the code
     while ([resultSet next]) {
         NSString *imageUrl = [resultSet stringForColumn:@"image_url"];
         int imageSize = [resultSet intForColumn:@"image_size"];
-        NSLog(@"select resultset %@, %d", imageUrl, imageSize);
     }
     NSDate *dateAfter = [NSDate date];
     [resultSet close];
@@ -77,14 +86,14 @@ Put `NSDate *dateAfter = [NSDate date];` after all `[result next];`, the code
     if ([resultSet next]) {
         NSString *imageUrl = [resultSet stringForColumn:@"image_url"];
         int imageSize = [resultSet intForColumn:@"image_size"];
-        NSLog(@"sort resultset %@, %d", imageUrl, imageSize);
     }
     NSDate *dateAfter = [NSDate date];
     [resultSet close];
     return [dateAfter timeIntervalSinceDate:dateBefore];
 }
 ```
-result 把时间截止写在[resultSet next]完成之后，效果非常明显 :
+
+Wooooow!!! Indexed table is much faster than the table without index.
 
 ```
  2016-03-23 16:30:01.440 sqlite[585:60b] ----------------------------------
@@ -93,9 +102,10 @@ result 把时间截止写在[resultSet next]完成之后，效果非常明显 :
  2016-03-23 16:30:01.452 sqlite[585:60b] ----------------------------------
 ```
 
-#3
- 
- while换成if(只执行一次next)，对于非index没影响，index有影响，每次都进行二分查找
+#3 Execute `[result next]` only once.
+
+Modify the code, change `while` to `if`, so we only execute `[result next]` at most once.
+
 ```
  2016-03-23 16:32:41.777 sqlite[592:60b] ----------------------------------
  2016-03-23 16:32:41.783 sqlite[592:60b] common select 0.129737, sort:0.416323
@@ -103,8 +113,10 @@ result 把时间截止写在[resultSet next]完成之后，效果非常明显 :
  2016-03-23 16:32:41.787 sqlite[592:60b] ----------------------------------
 ```
 
-#4
- limit 换成10，使用while，index的时间变长
+The indexed table become faster, the reason if ........, see the [link](http://www.sqlite.org/queryplanner.html)
+
+#4 Limit from 5 to 10, use while other than if.
+
 ```
  2016-03-23 16:34:19.840 sqlite[604:60b] ----------------------------------
  2016-03-23 16:34:19.846 sqlite[604:60b] common select 0.129006, sort:0.425875
@@ -112,8 +124,8 @@ result 把时间截止写在[resultSet next]完成之后，效果非常明显 :
  2016-03-23 16:34:19.850 sqlite[604:60b] ----------------------------------
 ```
 
-#5
- limit 使用100，index几乎10倍增长
+#5 Limit from 10 to 100, use while.
+
 ```
  2016-03-23 16:35:38.800 sqlite[611:60b] ----------------------------------
  2016-03-23 16:35:38.805 sqlite[611:60b] common select 0.128036, sort:0.548708
@@ -121,8 +133,10 @@ result 把时间截止写在[resultSet next]完成之后，效果非常明显 :
  2016-03-23 16:35:38.809 sqlite[611:60b] ----------------------------------
 ```
 
-#6
- limit 使用1000，index时间增长较快
+The time of executing in indexed table is almost 10 times than "limit 10".
+
+#6 Limit from 100 to 1000
+
 ```
  2016-03-23 16:36:37.763 sqlite[617:60b] ----------------------------------
  2016-03-23 16:36:37.768 sqlite[617:60b] common select 0.131462, sort:1.066768
@@ -130,8 +144,8 @@ result 把时间截止写在[resultSet next]完成之后，效果非常明显 :
  2016-03-23 16:36:37.772 sqlite[617:60b] ----------------------------------
 ```
 
-#7
- limit 使用1000，while换成if。index非常快，非index仍然很慢
+#7 Limit 1000, but use if other than while
+
 ```
  2016-03-23 16:37:47.327 sqlite[624:60b] ----------------------------------
  2016-03-23 16:37:47.333 sqlite[624:60b] common select 0.128068, sort:1.026709
