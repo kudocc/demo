@@ -19,6 +19,8 @@
 		A7904A9F1C926B8F00ABC195 /* DataTaskBasicAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7904A9E1C926B8F00ABC195 /* DataTaskBasicAuthViewController.m */; };
 		A7904AA21C926BDB00ABC195 /* DataTaskHttpsServerAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7904AA11C926BDB00ABC195 /* DataTaskHttpsServerAuthViewController.m */; };
 		A7904AA71C92C31200ABC195 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7904AA61C92C31200ABC195 /* AFSecurityPolicy.m */; };
+		A7904AAD1C92C45E00ABC195 /* server.cer in Resources */ = {isa = PBXBuildFile; fileRef = A7904AAC1C92C45E00ABC195 /* server.cer */; };
+		A7904AAF1C92C77A00ABC195 /* servvv.cer in Resources */ = {isa = PBXBuildFile; fileRef = A7904AAE1C92C77A00ABC195 /* servvv.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		A7904AA11C926BDB00ABC195 /* DataTaskHttpsServerAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTaskHttpsServerAuthViewController.m; sourceTree = "<group>"; };
 		A7904AA51C92C31200ABC195 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
 		A7904AA61C92C31200ABC195 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		A7904AAC1C92C45E00ABC195 /* server.cer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = server.cer; sourceTree = "<group>"; };
+		A7904AAE1C92C77A00ABC195 /* servvv.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = servvv.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 				A779322B1C893816009BE2D2 /* Assets.xcassets */,
 				A779322D1C893816009BE2D2 /* LaunchScreen.storyboard */,
 				A77932301C893816009BE2D2 /* Info.plist */,
+				A7904AAC1C92C45E00ABC195 /* server.cer */,
+				A7904AAE1C92C77A00ABC195 /* servvv.cer */,
 				A779321F1C893815009BE2D2 /* Supporting Files */,
 			);
 			path = URLSessionTest;
@@ -264,7 +270,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A779322F1C893816009BE2D2 /* LaunchScreen.storyboard in Resources */,
+				A7904AAD1C92C45E00ABC195 /* server.cer in Resources */,
 				A779322C1C893816009BE2D2 /* Assets.xcassets in Resources */,
+				A7904AAF1C92C77A00ABC195 /* servvv.cer in Resources */,
 				A779322A1C893816009BE2D2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
