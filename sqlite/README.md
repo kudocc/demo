@@ -4,8 +4,8 @@ I want to test the select performance on table with index and table withot index
 
 There are two sqlite statements:
 
-1.`select * from downloaded_image_url where image_url=?`
-2.`select * from downloaded_image_url order by image_size desc limit 5`
+1. `select * from downloaded_image_url where image_url=?`.
+2. `select * from downloaded_image_url order by image_size desc limit 5`.
 
 Let's go:
 
