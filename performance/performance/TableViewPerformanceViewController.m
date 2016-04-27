@@ -11,6 +11,7 @@
 #import "CornerRadiusView.h"
 #import "UIView+CornerRadius.h"
 #import "UIView+RoundedCorner.h"
+#import "UIImage+Resize.h"
 
 @interface ImageViewPerformanceCell : UITableViewCell
 
@@ -35,7 +36,7 @@
     UIColor *borderColor = [UIColor blackColor];
     CGFloat borderWidth = 0.0;
     
-#define Performance 3
+#define Performance 2
     
 #if Performance == 1
     
@@ -155,12 +156,18 @@
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.separatorInset = UIEdgeInsetsZero;
     
+    /**
+     decode之后效果并不明显，但是resize之后，效果非常明显
+     */
     _mArrayImage = [NSMutableArray array];
     for (int i = 0; i < 11; ++i) {
         NSString *imageName = [NSString stringWithFormat:@"image%@.jpg", @(i)];
         UIImage *image = [UIImage imageNamed:imageName];
         // 不decode时，内存使用为7M，decode之后应用尼玛17M！！！！
-        image = [UIImage decodedImageWithImage:image];
+//        image = [UIImage decodedImageWithImage:image];
+        NSLog(@"before resize:%@", NSStringFromCGSize(image.size));
+        image = [UIImage kc_resizeImage:image contentMode:UIViewContentModeScaleAspectFill size:CGSizeMake([ImageViewPerformanceCell imageHeight], [ImageViewPerformanceCell imageHeight])];
+        NSLog(@"after resize:%@", NSStringFromCGSize(image.size));
         [_mArrayImage addObject:image];
     }
 }
