@@ -23,16 +23,14 @@
     CGContextSetFillColorWithColor(context, bgColor.CGColor);
     CGContextFillRect(context, CGRectMake(0.0, 0.0, size.width, size.height));
     
-    if (borderWidth > 0 && borderColor) {
-        UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0, 0.0, size.width, size.height) cornerRadius:radius];
-        [path addClip];
-        CGContextSetFillColorWithColor(context, borderColor.CGColor);
-        CGContextFillRect(context, CGRectMake(0.0, 0.0, size.width, size.height));
-    }
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(borderWidth, borderWidth, size.width-2*borderWidth, size.height-2*borderWidth) cornerRadius:radius];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0, 0.0, size.width, size.height) cornerRadius:radius];
     [path addClip];
-    CGContextClearRect(context, CGRectMake(0.0, 0.0, size.width, size.height));
+    CGContextClearRect(context, CGRectMake(0, 0, size.width, size.height));
+    if (borderWidth > 0 && borderColor) {
+        path.lineWidth = borderWidth*2;
+        CGContextSetStrokeColorWithColor(context, borderColor.CGColor);
+        [path stroke];
+    }
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

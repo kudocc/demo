@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
     
     _arrayTitle = @[@"Test clipToMask", @"Test draw scale", @"Test missaligned", @"Test blend"];
     _arrayClass = @[[TableViewPerformanceViewController class],
@@ -33,6 +34,9 @@
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:tableView];
+    tableView.tableFooterView = [UIView new];
+    tableView.backgroundColor = [UIColor whiteColor];
+    tableView.opaque = YES;
     tableView.delegate = self;
     tableView.dataSource = self;
 }

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-// masksToBounds影响很大
+// 分析几种为UIImageView添加圆角的方法
 @interface TableViewPerformanceViewController : UIViewController
 
 @end

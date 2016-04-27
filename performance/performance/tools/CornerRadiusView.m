@@ -10,6 +10,14 @@
 
 @implementation CornerRadiusView
 
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = [UIColor clearColor];
+    }
+    return self;
+}
+
 - (void)setImage:(UIImage *)image {
     if (_image != image) {
         _image = image;
@@ -23,22 +31,12 @@
     // context
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    // background color
-    UIColor *backgroundColor = self.backgroundColor;
-    if (!backgroundColor) {
-        backgroundColor = [UIColor clearColor];
-    }
-    
     // if there is a corner radius, set clear color as fill color, then fill background and set the clip zone
     if (_cornerRadius > 0.0) {
         CGContextSetFillColorWithColor(context, [UIColor clearColor].CGColor);
         CGContextFillRect(context, self.bounds);
         [[UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:_cornerRadius] addClip];
     }
-    
-    // draw background
-    CGContextSetFillColorWithColor(context, backgroundColor.CGColor);
-    CGContextFillRect(context, self.bounds);
     
     if (self.image) {
         CGSize imageSize = self.image.size;
