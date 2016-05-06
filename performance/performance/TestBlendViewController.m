@@ -62,19 +62,19 @@
 
 - (void)layoutSubviews {
     CGSize s = self.bounds.size;
-    _label1.frame = CGRectMake(0.0, 0.0, s.height, s.height);
+    _label1.frame = CGRectMake(0.0, 0.0, 60, s.height);
     
     CGFloat x = _label1.frame.origin.x + s.height + 10.0;
-    _label2.frame = CGRectMake(x, 0.0, s.height, s.height);
+    _label2.frame = CGRectMake(x, 0.0, 60, s.height);
     
     x = _label2.frame.origin.x + s.height + 10.0;
-    _label3.frame = CGRectMake(x, 0.0, s.height, s.height);
+    _label3.frame = CGRectMake(x, 0.0, 60, s.height);
     
     x = _label3.frame.origin.x + s.height + 10.0;
-    _label4.frame = CGRectMake(x, 0.0, s.height, s.height);
+    _label4.frame = CGRectMake(x, 0.0, 60, s.height);
     
     x = _label4.frame.origin.x + s.height + 10.0;
-    _label5.frame = CGRectMake(x, 0.0, s.height, s.height);
+    _label5.frame = CGRectMake(x, 0.0, 60, s.height);
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "UIViewMaskImageWithImage.h"
 #import "UIViewMaskImageWithColor.h"
 #import "UIViewMaskImageByClippingContext.h"
+#import "UIViewCordinate.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -55,6 +56,9 @@
         case 3:
             v = [[UIViewMaskImageByClippingContext alloc] initWithFrame:[UIScreen mainScreen].bounds];
             break;
+        case 4:
+            v = [[UIViewCordinate alloc] initWithFrame:[UIScreen mainScreen].bounds];
+            break;
         default:
             break;
     }
@@ -68,7 +72,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -88,6 +92,9 @@
             break;
         case 3:
             cell.textLabel.text = @"UIViewMaskImageByClippingContext";
+            break;
+        case 4:
+            cell.textLabel.text = @"UIViewCordinate";
             break;
         default:
             break;

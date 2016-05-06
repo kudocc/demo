@@ -20,6 +20,7 @@
 		A75EA3371C3E13B8002D7B23 /* UIViewMaskImageWithColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA3361C3E13B8002D7B23 /* UIViewMaskImageWithColor.m */; };
 		A75EA33A1C3E13EE002D7B23 /* UIViewMaskImageByClippingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA3391C3E13EE002D7B23 /* UIViewMaskImageByClippingContext.m */; };
 		A75EA33D1C3E2F1F002D7B23 /* UIImage+ImageMask.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA33C1C3E2F1F002D7B23 /* UIImage+ImageMask.m */; };
+		A7B8EE7A1CDC78E400597F59 /* UIViewCordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B8EE791CDC78E400597F59 /* UIViewCordinate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		A75EA3391C3E13EE002D7B23 /* UIViewMaskImageByClippingContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewMaskImageByClippingContext.m; sourceTree = "<group>"; };
 		A75EA33B1C3E2F1F002D7B23 /* UIImage+ImageMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageMask.h"; sourceTree = "<group>"; };
 		A75EA33C1C3E2F1F002D7B23 /* UIImage+ImageMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageMask.m"; sourceTree = "<group>"; };
+		A7B8EE781CDC78E400597F59 /* UIViewCordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewCordinate.h; sourceTree = "<group>"; };
+		A7B8EE791CDC78E400597F59 /* UIViewCordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewCordinate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				A75EA33B1C3E2F1F002D7B23 /* UIImage+ImageMask.h */,
 				A75EA33C1C3E2F1F002D7B23 /* UIImage+ImageMask.m */,
 				A75EA2FC1C3E0A1F002D7B23 /* Supporting Files */,
+				A7B8EE781CDC78E400597F59 /* UIViewCordinate.h */,
+				A7B8EE791CDC78E400597F59 /* UIViewCordinate.m */,
 				A75EA32F1C3E1398002D7B23 /* UIViewMaskImageWithImageMask.h */,
 				A75EA3301C3E1398002D7B23 /* UIViewMaskImageWithImageMask.m */,
 				A75EA3321C3E13AA002D7B23 /* UIViewMaskImageWithImage.h */,
@@ -299,6 +304,7 @@
 				A75EA33D1C3E2F1F002D7B23 /* UIImage+ImageMask.m in Sources */,
 				A75EA3311C3E1398002D7B23 /* UIViewMaskImageWithImageMask.m in Sources */,
 				A75EA3041C3E0A1F002D7B23 /* ViewController.m in Sources */,
+				A7B8EE7A1CDC78E400597F59 /* UIViewCordinate.m in Sources */,
 				A75EA33A1C3E13EE002D7B23 /* UIViewMaskImageByClippingContext.m in Sources */,
 				A75EA3011C3E0A1F002D7B23 /* AppDelegate.m in Sources */,
 				A75EA2FE1C3E0A1F002D7B23 /* main.m in Sources */,

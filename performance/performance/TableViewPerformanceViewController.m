@@ -36,7 +36,7 @@
     UIColor *borderColor = [UIColor blackColor];
     CGFloat borderWidth = 0.0;
     
-#define Performance 2
+#define Performance 1
     
 #if Performance == 1
     
@@ -135,7 +135,11 @@
 
 @end
 
-@interface TableViewPerformanceViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TableViewPerformanceViewController () <UITableViewDataSource, UITableViewDelegate> {
+    pthread_mutex_t mutex;
+    NSLock *lock;
+    NSRecursiveLock *recursiveLock;
+}
 
 @property (nonatomic, strong) NSMutableArray *mArrayImage;
 
@@ -151,6 +155,7 @@
     UITableView *tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:tableView];
     tableView.backgroundColor = [UIColor whiteColor];
+    tableView.estimatedRowHeight = 20.0;
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -207,6 +212,12 @@
     [cell.imgView3 jm_setCornerRadius:10 withImage:image];
 #else
     if ([cell.imgView1 respondsToSelector:@selector(setImage:)]) {
+        CATransition *transition = [CATransition animation];
+        transition.duration = 2;
+        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        transition.type = kCATransitionFade;
+        [cell.imgView1.layer addAnimation:transition forKey:@"key"];
+        
         [cell.imgView1 performSelector:@selector(setImage:) withObject:image];
     }
     if ([cell.imgView2 respondsToSelector:@selector(setImage:)]) {

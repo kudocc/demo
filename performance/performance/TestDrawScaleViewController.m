@@ -7,6 +7,9 @@
 //
 
 #import "TestDrawScaleViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImage+Resize.h"
+#import <UIImage+RoundedCorner.h>
 
 @interface TestDrawScaleViewController ()
 
@@ -48,11 +51,11 @@
     // image2 is 264 * 264 px image
     UIImage *image2 = UIGraphicsGetImageFromCurrentImageContext();
     
-    _imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 64.0, 132.0, 132.0)];
+    _imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 84.0, 132.0, 132.0)];
     _imageView1.image = image1;
     [self.view addSubview:_imageView1];
     
-    _imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(132.0, 64.0, 132.0, 132.0)];
+    _imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(132.0, 84.0, 132.0, 132.0)];
     _imageView2.image = image2;
     [self.view addSubview:_imageView2];
     
