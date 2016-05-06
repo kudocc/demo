@@ -25,6 +25,7 @@
     [image drawInRect:CGRectMake(0, y, image.size.width, image.size.height)];
     
     CGContextRef context = UIGraphicsGetCurrentContext();
+    NSLog(@"%@", NSStringFromCGAffineTransform(CGContextGetCTM(context)));
     y += image.size.height;
     CGContextSaveGState(context);
     CGContextTranslateCTM(context, 0, y+image.size.height);
@@ -36,6 +37,7 @@
     y += image.size.height;
     CGContextTranslateCTM(context, 0, self.bounds.size.height);
     CGContextScaleCTM(context, 1, -1);
+    NSLog(@"%@", NSStringFromCGAffineTransform(CGContextGetCTM(context)));
     CGContextDrawImage(context, CGRectMake(0, 0, image.size.width, image.size.height), image.CGImage);
 }
 
