@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A70F40DB1CD0C0A400906F82 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = A70F40DA1CD0C0A400906F82 /* UIImage+Resize.m */; };
+		A73079371CE03287008EA645 /* UIImage+CCKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A73079361CE03287008EA645 /* UIImage+CCKit.m */; };
 		A758BECD1C4DDD0A006CFA05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A758BECC1C4DDD0A006CFA05 /* main.m */; };
 		A758BED01C4DDD0A006CFA05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A758BECF1C4DDD0A006CFA05 /* AppDelegate.m */; };
 		A758BED31C4DDD0A006CFA05 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A758BED21C4DDD0A006CFA05 /* ViewController.m */; };
@@ -20,7 +20,6 @@
 		A758BF091C4E1BAF006CFA05 /* TestBlendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A758BF081C4E1BAF006CFA05 /* TestBlendViewController.m */; };
 		A758BF0C1C4E1BF6006CFA05 /* TestMissalignedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A758BF0B1C4E1BF6006CFA05 /* TestMissalignedViewController.m */; };
 		A7629B921C8FB9BD00CC32B9 /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = A7629B911C8FB9BD00CC32B9 /* UIView+CornerRadius.m */; };
-		A76474F11C8E9E3B00ED2EC3 /* UIImage+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = A76474F01C8E9E3B00ED2EC3 /* UIImage+CornerRadius.m */; };
 		A7841B211C509ED300CE0F0C /* CornerRadiusView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7841B201C509ED300CE0F0C /* CornerRadiusView.m */; };
 		A7AC614D1C51D7A1005B8D43 /* CornerRadiusView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AC614C1C51D7A1005B8D43 /* CornerRadiusView+WebCache.m */; };
 		A7AC61501C51F6CE005B8D43 /* TestDrawScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AC614F1C51F6CE005B8D43 /* TestDrawScaleViewController.m */; };
@@ -48,8 +47,8 @@
 		1984FA2CE32A8FD349BB445F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		27EC1777FCECD68A69BEA36F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4ECCC0F924D6F3D85905D715 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A70F40D91CD0C0A400906F82 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "tools/UIImage+Resize.h"; sourceTree = "<group>"; };
-		A70F40DA1CD0C0A400906F82 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "tools/UIImage+Resize.m"; sourceTree = "<group>"; };
+		A73079351CE03287008EA645 /* UIImage+CCKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CCKit.h"; sourceTree = "<group>"; };
+		A73079361CE03287008EA645 /* UIImage+CCKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CCKit.m"; sourceTree = "<group>"; };
 		A758BEC81C4DDD0A006CFA05 /* performance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = performance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A758BECC1C4DDD0A006CFA05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A758BECE1C4DDD0A006CFA05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,8 +73,6 @@
 		A758BF0B1C4E1BF6006CFA05 /* TestMissalignedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMissalignedViewController.m; sourceTree = "<group>"; };
 		A7629B901C8FB9BD00CC32B9 /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+CornerRadius.h"; path = "tools/UIView+CornerRadius.h"; sourceTree = "<group>"; };
 		A7629B911C8FB9BD00CC32B9 /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+CornerRadius.m"; path = "tools/UIView+CornerRadius.m"; sourceTree = "<group>"; };
-		A76474EF1C8E9E3B00ED2EC3 /* UIImage+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+CornerRadius.h"; path = "tools/UIImage+CornerRadius.h"; sourceTree = "<group>"; };
-		A76474F01C8E9E3B00ED2EC3 /* UIImage+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CornerRadius.m"; path = "tools/UIImage+CornerRadius.m"; sourceTree = "<group>"; };
 		A7841B1F1C509ED300CE0F0C /* CornerRadiusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CornerRadiusView.h; path = tools/CornerRadiusView.h; sourceTree = "<group>"; };
 		A7841B201C509ED300CE0F0C /* CornerRadiusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CornerRadiusView.m; path = tools/CornerRadiusView.m; sourceTree = "<group>"; };
 		A7AC614B1C51D7A1005B8D43 /* CornerRadiusView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CornerRadiusView+WebCache.h"; path = "tools/CornerRadiusView+WebCache.h"; sourceTree = "<group>"; };
@@ -190,10 +187,8 @@
 				A7841B201C509ED300CE0F0C /* CornerRadiusView.m */,
 				A7AC614B1C51D7A1005B8D43 /* CornerRadiusView+WebCache.h */,
 				A7AC614C1C51D7A1005B8D43 /* CornerRadiusView+WebCache.m */,
-				A76474EF1C8E9E3B00ED2EC3 /* UIImage+CornerRadius.h */,
-				A76474F01C8E9E3B00ED2EC3 /* UIImage+CornerRadius.m */,
-				A70F40D91CD0C0A400906F82 /* UIImage+Resize.h */,
-				A70F40DA1CD0C0A400906F82 /* UIImage+Resize.m */,
+				A73079351CE03287008EA645 /* UIImage+CCKit.h */,
+				A73079361CE03287008EA645 /* UIImage+CCKit.m */,
 				A7629B901C8FB9BD00CC32B9 /* UIView+CornerRadius.h */,
 				A7629B911C8FB9BD00CC32B9 /* UIView+CornerRadius.m */,
 			);
@@ -404,9 +399,8 @@
 				A758BF0C1C4E1BF6006CFA05 /* TestMissalignedViewController.m in Sources */,
 				A758BED01C4DDD0A006CFA05 /* AppDelegate.m in Sources */,
 				A7841B211C509ED300CE0F0C /* CornerRadiusView.m in Sources */,
-				A70F40DB1CD0C0A400906F82 /* UIImage+Resize.m in Sources */,
+				A73079371CE03287008EA645 /* UIImage+CCKit.m in Sources */,
 				A7AC61501C51F6CE005B8D43 /* TestDrawScaleViewController.m in Sources */,
-				A76474F11C8E9E3B00ED2EC3 /* UIImage+CornerRadius.m in Sources */,
 				A758BF091C4E1BAF006CFA05 /* TestBlendViewController.m in Sources */,
 				A758BECD1C4DDD0A006CFA05 /* main.m in Sources */,
 				A7629B921C8FB9BD00CC32B9 /* UIView+CornerRadius.m in Sources */,

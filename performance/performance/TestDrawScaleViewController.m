@@ -7,9 +7,6 @@
 //
 
 #import "TestDrawScaleViewController.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-#import "UIImage+Resize.h"
-#import <UIImage+RoundedCorner.h>
 
 @interface TestDrawScaleViewController ()
 

@@ -25,19 +25,50 @@
     [self.view.layer addSublayer:_shapeLayer];
     _shapeLayer.frame = CGRectMake(0.0, 64.0, 200.0, 200.0);
     _shapeLayer.backgroundColor = [UIColor whiteColor].CGColor;
-    _shapeLayer.lineWidth = 50.0;
+    _shapeLayer.lineWidth = 1.0;
     _shapeLayer.strokeColor = [UIColor greenColor].CGColor;
-    _shapeLayer.fillColor = [UIColor blueColor].CGColor;
-    _shapeLayer.strokeEnd = 0.0;
+    _shapeLayer.fillColor = [UIColor clearColor].CGColor;
+}
+
+- (void)animatePath {
+    CGMutablePathRef spath = CGPathCreateMutable();
+    CGPathMoveToPoint(spath, NULL, 0, 0);
+    CGPathAddLineToPoint(spath, NULL, 30.0, 30.0);
+    CGPathAddLineToPoint(spath, NULL, 80.0, 30.0);
+    CGPathAddLineToPoint(spath, NULL, 80.0, 80.0);
+    CGPathAddLineToPoint(spath, NULL, 130.0, 80.0);
+    CGPathCloseSubpath(spath);
     
-    // create the path
     CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, 51.0, 51.0);
-    CGPathAddLineToPoint(path, NULL, 100.0, 51.0);
-//    CGPathMoveToPoint(path, NULL, 100.0, 1.0);
-//    CGPathAddLineToPoint(path, NULL, 100.0, 100.0);
-//    CGPathMoveToPoint(path, NULL, 100.0, 100.0);
-//    CGPathAddLineToPoint(path, NULL, 150.0, 150.0);
+    CGPathMoveToPoint(path, NULL, 0, 0);
+    CGPathAddLineToPoint(path, NULL, 50.0, 50.0);
+    CGPathAddLineToPoint(path, NULL, 100.0, 50.0);
+    CGPathAddLineToPoint(path, NULL, 100.0, 100.0);
+    CGPathAddLineToPoint(path, NULL, 150.0, 100.0);
+    CGPathCloseSubpath(path);
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"path"];
+    animation.fromValue = (__bridge id)spath;
+    animation.toValue = (__bridge id)path;
+    animation.duration = 2.0;
+    animation.autoreverses = NO;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    [_shapeLayer addAnimation:animation forKey:@"animatePath"];
+    
+    _shapeLayer.path = path;
+    
+    CGPathRelease(path);
+    CGPathRelease(spath);
+}
+
+- (void)animateStrokePath {
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, 0, 0);
+    CGPathAddLineToPoint(path, NULL, 50.0, 50.0);
+    CGPathAddLineToPoint(path, NULL, 100.0, 50.0);
+    CGPathAddLineToPoint(path, NULL, 100.0, 100.0);
+    CGPathAddLineToPoint(path, NULL, 150.0, 100.0);
+    CGPathCloseSubpath(path);
     
     _shapeLayer.path = path;
     CGPathRelease(path);
@@ -46,26 +77,12 @@
     animation.fromValue = @0.0;
     animation.toValue = @1.0;
     animation.duration = 2.0;
-    animation.autoreverses = NO;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [_shapeLayer addAnimation:animation forKey:@"animatePath"];
-    
-    _shapeLayer.strokeEnd = 1.0;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)tapClick:(UITapGestureRecognizer *)gr {
+    [self animatePath];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

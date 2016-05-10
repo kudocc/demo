@@ -7,7 +7,7 @@
 //
 
 #import "CornerRadiusView.h"
-#import "UIImage+Resize.h"
+#import "UIImage+CCKit.h"
 
 @implementation CornerRadiusView
 
@@ -41,7 +41,7 @@
     
     if (self.image) {
         // draw content
-        CGRect frameImage = [UIImage kc_frameOfImage:_image inContentSize:size withContentMode:self.contentMode];
+        CGRect frameImage = [UIImage cc_frameOfImage:_image inContentSize:size withContentMode:self.contentMode];
         [self.image drawInRect:frameImage];
     }
     

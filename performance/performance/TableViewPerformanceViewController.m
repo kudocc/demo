@@ -7,11 +7,11 @@
 //
 
 #import "TableViewPerformanceViewController.h"
+#import <UIImageView+WebCache.h>
 #import <SDWebImageDecoder.h>
 #import "CornerRadiusView.h"
 #import "UIView+CornerRadius.h"
-#import "UIView+RoundedCorner.h"
-#import "UIImage+Resize.h"
+#import "UIImage+CCKit.h"
 
 @interface ImageViewPerformanceCell : UITableViewCell
 
@@ -36,7 +36,7 @@
     UIColor *borderColor = [UIColor blackColor];
     CGFloat borderWidth = 0.0;
     
-#define Performance 1
+#define Performance 4
     
 #if Performance == 1
     
@@ -97,14 +97,24 @@
     
 #else
     
-    // 使用JMRoundedCorner，帧率很高，缺点是：它在后台绘制带圆角的图片，然后返回给主线程，因为是异步的，所以设置图片会有延迟
-    // 相较于Performance==3的case，其在后台处理图片会消耗cpu资源，不过我也不能肯定Performance==3是否因为会造成blended layer而消耗资源
     UIImageView *v = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, [self.class imageHeight], [self.class imageHeight])];
+    v.tag = 1024;
+    v.contentMode = UIViewContentModeScaleToFill;
+    [v sd_setTransformDownloadedImageBlock:^UIImage *(UIImage *image, NSURL *imageUrl) {
+        NSAssert(![NSThread isMainThread], @"can't be main thread");
+        CGSize size = CGSizeMake(44, 44);
+        CGFloat radius = 5;
+        if (image.images) {
+            NSMutableArray *mArray = [NSMutableArray array];
+            for (UIImage *imageItem in image.images) {
+                [mArray addObject:[imageItem cc_imageWithSize:size cornerRadius:radius borderWidth:0 borderColor:nil contentMode:UIViewContentModeScaleAspectFill]];
+            }
+            return [UIImage animatedImageWithImages:mArray duration:image.duration];
+        } else {
+            return [image cc_imageWithSize:size cornerRadius:radius borderWidth:0 borderColor:nil contentMode:UIViewContentModeScaleAspectFill];
+        }
+    } transformKey:@"roundCorner"];
     
-    /**
-     UIImageView背景是透明的，在JMRoundedCorner设置的图片即使没画圆角以外的部分，也没什么问题，如果这里把背景改成黑色，那就出问题了。
-    v.backgroundColor = [UIColor blackColor];
-     */
 #endif
     
     
@@ -171,7 +181,7 @@
         // 不decode时，内存使用为7M，decode之后应用尼玛17M！！！！
 //        image = [UIImage decodedImageWithImage:image];
         NSLog(@"before resize:%@", NSStringFromCGSize(image.size));
-        image = [UIImage kc_resizeImage:image contentMode:UIViewContentModeScaleAspectFill size:CGSizeMake([ImageViewPerformanceCell imageHeight], [ImageViewPerformanceCell imageHeight])];
+        image = [UIImage cc_resizeImage:image contentMode:UIViewContentModeScaleAspectFill size:CGSizeMake([ImageViewPerformanceCell imageHeight], [ImageViewPerformanceCell imageHeight])];
         NSLog(@"after resize:%@", NSStringFromCGSize(image.size));
         [_mArrayImage addObject:image];
     }
@@ -203,14 +213,13 @@
         }
     }
     
+#if Performance == 4
+    [(UIImageView *)cell.imgView1 sd_setImageWithURL:[NSURL URLWithString:@"http://pic22.nipic.com/20120716/10469458_101024533116_2.jpg"]];
+    [(UIImageView *)cell.imgView2 sd_setImageWithURL:[NSURL URLWithString:@"http://img5.imgtn.bdimg.com/it/u=3125965691,1960187158&fm=206&gp=0.jpg"]];
+    [(UIImageView *)cell.imgView3 sd_setImageWithURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201409/05/20140905221558_RmjAz.thumb.700_0.jpeg"]];
+#else
     NSInteger i = indexPath.row % 11;
     UIImage *image = _mArrayImage[i];
-    
-#if Performance == 4
-    [cell.imgView1 jm_setCornerRadius:10 withImage:image];
-    [cell.imgView2 jm_setCornerRadius:10 withImage:image];
-    [cell.imgView3 jm_setCornerRadius:10 withImage:image];
-#else
     if ([cell.imgView1 respondsToSelector:@selector(setImage:)]) {
         CATransition *transition = [CATransition animation];
         transition.duration = 2;

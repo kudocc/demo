@@ -15,11 +15,11 @@
 		278616F01AEE1357004D2461 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278616EE1AEE1357004D2461 /* LaunchScreen.xib */; };
 		278616FC1AEE1357004D2461 /* AnimationDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 278616FB1AEE1357004D2461 /* AnimationDemoTests.m */; };
 		278617081AEE14DA004D2461 /* CAActionTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278617071AEE14DA004D2461 /* CAActionTestViewController.m */; };
-		2786170C1AEE1504004D2461 /* conan1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2786170A1AEE1504004D2461 /* conan1@2x.png */; };
-		2786170D1AEE1504004D2461 /* conan2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2786170B1AEE1504004D2461 /* conan2@2x.png */; };
 		27EF69CE1AEE334B00C37251 /* CABasicAnimationTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF69CD1AEE334B00C37251 /* CABasicAnimationTestViewController.m */; };
 		27EF69D11AEE33B700C37251 /* UIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EF69D01AEE33B700C37251 /* UIBaseViewController.m */; };
 		A719BD151BDDF2B0004B0488 /* CAShapeLayerTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A719BD141BDDF2B0004B0488 /* CAShapeLayerTestViewController.m */; };
+		A730793D1CE09AC7008EA645 /* CAKeyframeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A730793C1CE09AC7008EA645 /* CAKeyframeViewController.m */; };
+		A73079401CE0CB6A008EA645 /* ImplicityAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A730793F1CE0CB6A008EA645 /* ImplicityAnimationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,14 +48,16 @@
 		278616FB1AEE1357004D2461 /* AnimationDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationDemoTests.m; sourceTree = "<group>"; };
 		278617061AEE14DA004D2461 /* CAActionTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAActionTestViewController.h; sourceTree = "<group>"; };
 		278617071AEE14DA004D2461 /* CAActionTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAActionTestViewController.m; sourceTree = "<group>"; };
-		2786170A1AEE1504004D2461 /* conan1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "conan1@2x.png"; sourceTree = "<group>"; };
-		2786170B1AEE1504004D2461 /* conan2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "conan2@2x.png"; sourceTree = "<group>"; };
 		27EF69CC1AEE334B00C37251 /* CABasicAnimationTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CABasicAnimationTestViewController.h; sourceTree = "<group>"; };
 		27EF69CD1AEE334B00C37251 /* CABasicAnimationTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CABasicAnimationTestViewController.m; sourceTree = "<group>"; };
 		27EF69CF1AEE33B700C37251 /* UIBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBaseViewController.h; sourceTree = "<group>"; };
 		27EF69D01AEE33B700C37251 /* UIBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBaseViewController.m; sourceTree = "<group>"; };
 		A719BD131BDDF2B0004B0488 /* CAShapeLayerTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAShapeLayerTestViewController.h; sourceTree = "<group>"; };
 		A719BD141BDDF2B0004B0488 /* CAShapeLayerTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAShapeLayerTestViewController.m; sourceTree = "<group>"; };
+		A730793B1CE09AC7008EA645 /* CAKeyframeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAKeyframeViewController.h; sourceTree = "<group>"; };
+		A730793C1CE09AC7008EA645 /* CAKeyframeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAKeyframeViewController.m; sourceTree = "<group>"; };
+		A730793E1CE0CB6A008EA645 /* ImplicityAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImplicityAnimationViewController.h; sourceTree = "<group>"; };
+		A730793F1CE0CB6A008EA645 /* ImplicityAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImplicityAnimationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,10 +144,14 @@
 			children = (
 				27EF69CF1AEE33B700C37251 /* UIBaseViewController.h */,
 				27EF69D01AEE33B700C37251 /* UIBaseViewController.m */,
-				278617061AEE14DA004D2461 /* CAActionTestViewController.h */,
-				278617071AEE14DA004D2461 /* CAActionTestViewController.m */,
+				A730793E1CE0CB6A008EA645 /* ImplicityAnimationViewController.h */,
+				A730793F1CE0CB6A008EA645 /* ImplicityAnimationViewController.m */,
 				27EF69CC1AEE334B00C37251 /* CABasicAnimationTestViewController.h */,
 				27EF69CD1AEE334B00C37251 /* CABasicAnimationTestViewController.m */,
+				A730793B1CE09AC7008EA645 /* CAKeyframeViewController.h */,
+				A730793C1CE09AC7008EA645 /* CAKeyframeViewController.m */,
+				278617061AEE14DA004D2461 /* CAActionTestViewController.h */,
+				278617071AEE14DA004D2461 /* CAActionTestViewController.m */,
 				A719BD131BDDF2B0004B0488 /* CAShapeLayerTestViewController.h */,
 				A719BD141BDDF2B0004B0488 /* CAShapeLayerTestViewController.m */,
 			);
@@ -155,8 +161,6 @@
 		278617091AEE14F5004D2461 /* Resourse */ = {
 			isa = PBXGroup;
 			children = (
-				2786170A1AEE1504004D2461 /* conan1@2x.png */,
-				2786170B1AEE1504004D2461 /* conan2@2x.png */,
 			);
 			name = Resourse;
 			sourceTree = "<group>";
@@ -242,9 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				278616EB1AEE1357004D2461 /* Main.storyboard in Resources */,
-				2786170D1AEE1504004D2461 /* conan2@2x.png in Resources */,
 				278616F01AEE1357004D2461 /* LaunchScreen.xib in Resources */,
-				2786170C1AEE1504004D2461 /* conan1@2x.png in Resources */,
 				278616ED1AEE1357004D2461 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,8 +267,10 @@
 			files = (
 				278617081AEE14DA004D2461 /* CAActionTestViewController.m in Sources */,
 				278616E81AEE1357004D2461 /* ViewController.m in Sources */,
+				A73079401CE0CB6A008EA645 /* ImplicityAnimationViewController.m in Sources */,
 				A719BD151BDDF2B0004B0488 /* CAShapeLayerTestViewController.m in Sources */,
 				27EF69CE1AEE334B00C37251 /* CABasicAnimationTestViewController.m in Sources */,
+				A730793D1CE09AC7008EA645 /* CAKeyframeViewController.m in Sources */,
 				278616E51AEE1357004D2461 /* AppDelegate.m in Sources */,
 				278616E21AEE1357004D2461 /* main.m in Sources */,
 				27EF69D11AEE33B700C37251 /* UIBaseViewController.m in Sources */,

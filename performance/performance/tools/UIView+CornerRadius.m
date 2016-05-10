@@ -7,7 +7,7 @@
 //
 
 #import "UIView+CornerRadius.h"
-#import "UIImage+CornerRadius.h"
+#import "UIImage+CCKit.h"
 #import <objc/runtime.h>
 
 static char cornerRadiusImageViewKey;
@@ -30,7 +30,7 @@ static char cornerRadiusImageViewKey;
         [self addSubview:imageView];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
-    UIImage *image = [UIImage imageWithSize:size
+    UIImage *image = [UIImage cc_transparentCenterImageWithSize:size
                                cornerRadius:radius
                             backgroundColor:bgColor
                                 borderWidth:borderWidth
