@@ -23,7 +23,7 @@
     
     _shapeLayer = [CAShapeLayer layer];
     [self.view.layer addSublayer:_shapeLayer];
-    _shapeLayer.frame = CGRectMake(0.0, 64.0, 200.0, 200.0);
+    _shapeLayer.frame = CGRectMake(0.0, 64.0, 300.0, 300.0);
     _shapeLayer.backgroundColor = [UIColor whiteColor].CGColor;
     _shapeLayer.lineWidth = 1.0;
     _shapeLayer.strokeColor = [UIColor greenColor].CGColor;
@@ -70,6 +70,11 @@
     CGPathAddLineToPoint(path, NULL, 150.0, 100.0);
     CGPathCloseSubpath(path);
     
+    CGPathMoveToPoint(path, NULL, 150, 150);
+    CGPathAddLineToPoint(path, NULL, 150, 200);
+    CGPathAddLineToPoint(path, NULL, 200, 200);
+    CGPathCloseSubpath(path);
+    
     _shapeLayer.path = path;
     CGPathRelease(path);
     
@@ -82,7 +87,7 @@
 }
 
 - (void)tapClick:(UITapGestureRecognizer *)gr {
-    [self animatePath];
+    [self animateStrokePath];
 }
 
 @end

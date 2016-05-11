@@ -7,13 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "UIViewMaskImageWithImageMask.h"
-#import "UIViewMaskImageWithImage.h"
-#import "UIViewMaskImageWithColor.h"
-#import "UIViewMaskImageByClippingContext.h"
-#import "UIViewCordinate.h"
+#import "ImageMaskViewController.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) NSArray *arrayTitle;
+@property (nonatomic, strong) NSArray *arrayClass;
 
 @end
 
@@ -22,57 +21,69 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    _arrayTitle = @[@"ImageMask"];
+    _arrayClass = @[[ImageMaskViewController class]];
+    
+    /*
+    UIImage *imageNoAlpha = [UIImage imageNamed:@"image_mask"];
+    CGImageRef imageAsMaskRef = imageNoAlpha.CGImage;
+    CGBitmapInfo bitmapInfo = 0;
+    bitmapInfo |= kCGImageAlphaPremultipliedLast;
+    bitmapInfo |= kCGBitmapFloatInfoMask;
+    bitmapInfo |= kCGBitmapByteOrderDefault;
+    
+    CGContextRef bitmapContext = CGBitmapContextCreate(nil,
+                                                       CGImageGetWidth(imageAsMaskRef),
+                                                       CGImageGetHeight(imageAsMaskRef),
+                                                       CGImageGetBitsPerComponent(imageAsMaskRef),
+                                                       CGImageGetBytesPerRow(imageAsMaskRef),
+                                                       CGImageGetColorSpace(imageAsMaskRef),
+                                                       bitmapInfo);
+    CGContextRef context = bitmapContext;
+    [[UIColor blackColor] setFill];
+    CGContextFillRect(context, (CGRect){CGPointZero, imageNoAlpha.size});
+    [[UIColor whiteColor] setStroke];
+    CGContextSetLineWidth(context, 5.0);
+    CGRect rectStroke = (CGRect){CGPointZero, imageNoAlpha.size};
+    rectStroke = CGRectInset(rectStroke, 5, 5);
+    CGContextStrokeRect(context, rectStroke);
+    CGImageRef imageRes = CGBitmapContextCreateImage(bitmapContext);
+    CGContextRelease(bitmapContext);
+    CGImageRelease(imageRes);
+    UIImage *image = [UIImage imageWithCGImage:imageRes];
+    */
+    
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:tableView];
+    tableView.tableFooterView = [UIView new];
+    tableView.backgroundColor = [UIColor whiteColor];
+    tableView.opaque = YES;
     tableView.delegate = self;
     tableView.dataSource = self;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44.0;
+    return 64.0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *vc = [[UIViewController alloc] init];
-    UIView *v = nil;
-    switch (indexPath.row) {
-        case 0:
-            v = [[UIViewMaskImageWithImageMask alloc] initWithFrame:[UIScreen mainScreen].bounds];
-            break;
-        case 1:
-            v = [[UIViewMaskImageWithImage alloc] initWithFrame:[UIScreen mainScreen].bounds];
-            break;
-        case 2:
-            v = [[UIViewMaskImageWithColor alloc] initWithFrame:[UIScreen mainScreen].bounds];
-            break;
-        case 3:
-            v = [[UIViewMaskImageByClippingContext alloc] initWithFrame:[UIScreen mainScreen].bounds];
-            break;
-        case 4:
-            v = [[UIViewCordinate alloc] initWithFrame:[UIScreen mainScreen].bounds];
-            break;
-        default:
-            break;
-    }
-    vc.view.backgroundColor = [UIColor whiteColor];
-    if (v) {
-        [vc.view addSubview:v];
-    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    Class class = _arrayClass[indexPath.row];
+    UIViewController *vc = (UIViewController *)[[class alloc] init];
+    vc.title = _arrayTitle[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [_arrayTitle count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -80,25 +91,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"id"];
     }
-    switch (indexPath.row) {
-        case 0:
-            cell.textLabel.text = @"UIViewMaskImageWithImageMask";
-            break;
-        case 1:
-            cell.textLabel.text = @"UIViewMaskImageWithImage";
-            break;
-        case 2:
-            cell.textLabel.text = @"UIViewMaskImageWithColor";
-            break;
-        case 3:
-            cell.textLabel.text = @"UIViewMaskImageByClippingContext";
-            break;
-        case 4:
-            cell.textLabel.text = @"UIViewCordinate";
-            break;
-        default:
-            break;
-    }
+    cell.textLabel.text = _arrayTitle[indexPath.row];
     return cell;
 }
 

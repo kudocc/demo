@@ -10,6 +10,13 @@
 
 @interface UIImage (ImageMask)
 
+- (UIImage *)imageMask;
+
 + (UIImage*) maskImage:(UIImage *)image withMask:(UIImage *)maskImage;
+
+
+- (UIImage *)kc_maskImageWithColor:(UIColor *)color;
+
+- (NSString *)kc_description;
 
 @end

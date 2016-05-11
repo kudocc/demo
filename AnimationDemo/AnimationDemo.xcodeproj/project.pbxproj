@@ -99,7 +99,6 @@
 		278616DE1AEE1357004D2461 /* AnimationDemo */ = {
 			isa = PBXGroup;
 			children = (
-				278617091AEE14F5004D2461 /* Resourse */,
 				278617051AEE14B6004D2461 /* AnimationViewController */,
 				278616E31AEE1357004D2461 /* AppDelegate.h */,
 				278616E41AEE1357004D2461 /* AppDelegate.m */,
@@ -156,13 +155,6 @@
 				A719BD141BDDF2B0004B0488 /* CAShapeLayerTestViewController.m */,
 			);
 			name = AnimationViewController;
-			sourceTree = "<group>";
-		};
-		278617091AEE14F5004D2461 /* Resourse */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resourse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

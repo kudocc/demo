@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7583C2B1CE2CAD4007558CB /* ImageMaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7583C2A1CE2CAD4007558CB /* ImageMaskViewController.m */; };
+		A7583C2E1CE2CB79007558CB /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7583C2D1CE2CB79007558CB /* BaseViewController.m */; };
+		A7583C301CE31490007558CB /* no_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = A7583C2F1CE31490007558CB /* no_alpha.png */; };
 		A75EA2FE1C3E0A1F002D7B23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA2FD1C3E0A1F002D7B23 /* main.m */; };
 		A75EA3011C3E0A1F002D7B23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA3001C3E0A1F002D7B23 /* AppDelegate.m */; };
 		A75EA3041C3E0A1F002D7B23 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA3031C3E0A1F002D7B23 /* ViewController.m */; };
@@ -15,8 +18,6 @@
 		A75EA30C1C3E0A1F002D7B23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A75EA30A1C3E0A1F002D7B23 /* LaunchScreen.storyboard */; };
 		A75EA3171C3E0A1F002D7B23 /* ImageMaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA3161C3E0A1F002D7B23 /* ImageMaskTests.m */; };
 		A75EA3221C3E0A1F002D7B23 /* ImageMaskUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA3211C3E0A1F002D7B23 /* ImageMaskUITests.m */; };
-		A75EA3311C3E1398002D7B23 /* UIViewMaskImageWithImageMask.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA3301C3E1398002D7B23 /* UIViewMaskImageWithImageMask.m */; };
-		A75EA3341C3E13AA002D7B23 /* UIViewMaskImageWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA3331C3E13AA002D7B23 /* UIViewMaskImageWithImage.m */; };
 		A75EA3371C3E13B8002D7B23 /* UIViewMaskImageWithColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA3361C3E13B8002D7B23 /* UIViewMaskImageWithColor.m */; };
 		A75EA33A1C3E13EE002D7B23 /* UIViewMaskImageByClippingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA3391C3E13EE002D7B23 /* UIViewMaskImageByClippingContext.m */; };
 		A75EA33D1C3E2F1F002D7B23 /* UIImage+ImageMask.m in Sources */ = {isa = PBXBuildFile; fileRef = A75EA33C1C3E2F1F002D7B23 /* UIImage+ImageMask.m */; };
@@ -41,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A7583C291CE2CAD4007558CB /* ImageMaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMaskViewController.h; sourceTree = "<group>"; };
+		A7583C2A1CE2CAD4007558CB /* ImageMaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageMaskViewController.m; sourceTree = "<group>"; };
+		A7583C2C1CE2CB79007558CB /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		A7583C2D1CE2CB79007558CB /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		A7583C2F1CE31490007558CB /* no_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_alpha.png; sourceTree = "<group>"; };
 		A75EA2F91C3E0A1F002D7B23 /* ImageMask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageMask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A75EA2FD1C3E0A1F002D7B23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A75EA2FF1C3E0A1F002D7B23 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,10 +63,6 @@
 		A75EA31D1C3E0A1F002D7B23 /* ImageMaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageMaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A75EA3211C3E0A1F002D7B23 /* ImageMaskUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageMaskUITests.m; sourceTree = "<group>"; };
 		A75EA3231C3E0A1F002D7B23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A75EA32F1C3E1398002D7B23 /* UIViewMaskImageWithImageMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewMaskImageWithImageMask.h; sourceTree = "<group>"; };
-		A75EA3301C3E1398002D7B23 /* UIViewMaskImageWithImageMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewMaskImageWithImageMask.m; sourceTree = "<group>"; };
-		A75EA3321C3E13AA002D7B23 /* UIViewMaskImageWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewMaskImageWithImage.h; sourceTree = "<group>"; };
-		A75EA3331C3E13AA002D7B23 /* UIViewMaskImageWithImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewMaskImageWithImage.m; sourceTree = "<group>"; };
 		A75EA3351C3E13B8002D7B23 /* UIViewMaskImageWithColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewMaskImageWithColor.h; sourceTree = "<group>"; };
 		A75EA3361C3E13B8002D7B23 /* UIViewMaskImageWithColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewMaskImageWithColor.m; sourceTree = "<group>"; };
 		A75EA3381C3E13EE002D7B23 /* UIViewMaskImageByClippingContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewMaskImageByClippingContext.h; sourceTree = "<group>"; };
@@ -132,10 +134,10 @@
 				A75EA2FC1C3E0A1F002D7B23 /* Supporting Files */,
 				A7B8EE781CDC78E400597F59 /* UIViewCordinate.h */,
 				A7B8EE791CDC78E400597F59 /* UIViewCordinate.m */,
-				A75EA32F1C3E1398002D7B23 /* UIViewMaskImageWithImageMask.h */,
-				A75EA3301C3E1398002D7B23 /* UIViewMaskImageWithImageMask.m */,
-				A75EA3321C3E13AA002D7B23 /* UIViewMaskImageWithImage.h */,
-				A75EA3331C3E13AA002D7B23 /* UIViewMaskImageWithImage.m */,
+				A7583C2C1CE2CB79007558CB /* BaseViewController.h */,
+				A7583C2D1CE2CB79007558CB /* BaseViewController.m */,
+				A7583C291CE2CAD4007558CB /* ImageMaskViewController.h */,
+				A7583C2A1CE2CAD4007558CB /* ImageMaskViewController.m */,
 				A75EA3351C3E13B8002D7B23 /* UIViewMaskImageWithColor.h */,
 				A75EA3361C3E13B8002D7B23 /* UIViewMaskImageWithColor.m */,
 				A75EA3381C3E13EE002D7B23 /* UIViewMaskImageByClippingContext.h */,
@@ -147,6 +149,7 @@
 		A75EA2FC1C3E0A1F002D7B23 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A7583C2F1CE31490007558CB /* no_alpha.png */,
 				A75EA2FD1C3E0A1F002D7B23 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A75EA30C1C3E0A1F002D7B23 /* LaunchScreen.storyboard in Resources */,
+				A7583C301CE31490007558CB /* no_alpha.png in Resources */,
 				A75EA3091C3E0A1F002D7B23 /* Assets.xcassets in Resources */,
 				A75EA3071C3E0A1F002D7B23 /* Main.storyboard in Resources */,
 			);
@@ -302,13 +306,13 @@
 			files = (
 				A75EA3371C3E13B8002D7B23 /* UIViewMaskImageWithColor.m in Sources */,
 				A75EA33D1C3E2F1F002D7B23 /* UIImage+ImageMask.m in Sources */,
-				A75EA3311C3E1398002D7B23 /* UIViewMaskImageWithImageMask.m in Sources */,
+				A7583C2E1CE2CB79007558CB /* BaseViewController.m in Sources */,
 				A75EA3041C3E0A1F002D7B23 /* ViewController.m in Sources */,
 				A7B8EE7A1CDC78E400597F59 /* UIViewCordinate.m in Sources */,
 				A75EA33A1C3E13EE002D7B23 /* UIViewMaskImageByClippingContext.m in Sources */,
+				A7583C2B1CE2CAD4007558CB /* ImageMaskViewController.m in Sources */,
 				A75EA3011C3E0A1F002D7B23 /* AppDelegate.m in Sources */,
 				A75EA2FE1C3E0A1F002D7B23 /* main.m in Sources */,
-				A75EA3341C3E13AA002D7B23 /* UIViewMaskImageWithImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

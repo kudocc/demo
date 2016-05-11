@@ -39,8 +39,7 @@
     [_layer addAnimation:keyframeAnimation forKey:@"position"];
     
     [CATransaction begin];
-    [CATransaction setValue:(id)kCFBooleanTrue
-                     forKey:kCATransactionDisableActions];
+    [CATransaction setDisableActions:YES];
     _layer.position = CGPathGetCurrentPoint(path);
     [CATransaction commit];
 }

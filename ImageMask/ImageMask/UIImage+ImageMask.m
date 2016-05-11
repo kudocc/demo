@@ -10,6 +10,60 @@
 
 @implementation UIImage (ImageMask)
 
+- (NSString *)kcc_description:(CGImageRef)imageRef {
+    CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(imageRef);
+    NSString *strAlphaInfo = @"";
+    switch (alphaInfo) {
+        case kCGImageAlphaNone:
+            strAlphaInfo = @"None";
+            break;
+        case kCGImageAlphaPremultipliedLast:
+            strAlphaInfo = @"PremultipliedLast";
+            break;
+        case kCGImageAlphaPremultipliedFirst:
+            strAlphaInfo = @"PremultipliedFirst";
+            break;
+        case kCGImageAlphaLast:
+            strAlphaInfo = @"AlphaLast";
+            break;
+        case kCGImageAlphaFirst:
+            strAlphaInfo = @"AlphaFirst";
+            break;
+        case kCGImageAlphaNoneSkipLast:
+            strAlphaInfo = @"NoneSkipLast";
+            break;
+        case kCGImageAlphaNoneSkipFirst:
+            strAlphaInfo = @"NoneSkipFirst";
+            break;
+        case kCGImageAlphaOnly:
+            strAlphaInfo = @"AlphaOnly";
+            break;
+        default:
+            break;
+    }
+    size_t bitsPerPixel = CGImageGetBitsPerPixel(imageRef);
+    size_t bitsPerComponent = CGImageGetBitsPerComponent(imageRef);
+    NSString *des = [NSString stringWithFormat:@"alpha:%@, bitsPerPixel:%@, bitsPerComponent:%@", strAlphaInfo, @(bitsPerPixel), @(bitsPerComponent)];
+    return des;
+}
+
+- (UIImage *)imageMask {
+    CGImageRef maskRef = self.CGImage;
+    CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(maskRef),
+                                        CGImageGetHeight(maskRef),
+                                        CGImageGetBitsPerComponent(maskRef),
+                                        CGImageGetBitsPerPixel(maskRef),
+                                        CGImageGetBytesPerRow(maskRef),
+                                        CGImageGetDataProvider(maskRef), NULL, false);
+    NSLog(@"%@", [self kcc_description:mask]);
+    // for mask: alpha:None, bitsPerPixel:32, bitsPerComponent:8
+    UIImage *image = [UIImage imageWithCGImage:mask];
+    // for image: alpha:NoneSkipFirst, bitsPerPixel:32, bitsPerComponent:8
+    NSLog(@"%@", [self kc_description]);
+    CGImageRelease(mask);
+    return image;
+}
+
 + (UIImage*) maskImage:(UIImage *)image withMask:(UIImage *)maskImage {
     
     CGImageRef maskRef = maskImage.CGImage;
@@ -29,6 +83,57 @@
     
     // returns new image with mask applied
     return maskedImage;
+}
+
+
+- (UIImage *)kc_maskImageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, self.scale);
+    CGContextRef c = UIGraphicsGetCurrentContext();
+    [self drawInRect:rect];
+    CGContextSetFillColorWithColor(c, [color CGColor]);
+    CGContextSetBlendMode(c, kCGBlendModeSourceAtop);
+    CGContextFillRect(c, rect);
+    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return result;
+}
+
+- (NSString *)kc_description {
+    CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(self.CGImage);
+    NSString *strAlphaInfo = @"";
+    switch (alphaInfo) {
+        case kCGImageAlphaNone:
+            strAlphaInfo = @"None";
+            break;
+        case kCGImageAlphaPremultipliedLast:
+            strAlphaInfo = @"PremultipliedLast";
+            break;
+        case kCGImageAlphaPremultipliedFirst:
+            strAlphaInfo = @"PremultipliedFirst";
+            break;
+        case kCGImageAlphaLast:
+            strAlphaInfo = @"AlphaLast";
+            break;
+        case kCGImageAlphaFirst:
+            strAlphaInfo = @"AlphaFirst";
+            break;
+        case kCGImageAlphaNoneSkipLast:
+            strAlphaInfo = @"NoneSkipLast";
+            break;
+        case kCGImageAlphaNoneSkipFirst:
+            strAlphaInfo = @"NoneSkipFirst";
+            break;
+        case kCGImageAlphaOnly:
+            strAlphaInfo = @"AlphaOnly";
+            break;
+        default:
+            break;
+    }
+    size_t bitsPerPixel = CGImageGetBitsPerPixel(self.CGImage);
+    size_t bitsPerComponent = CGImageGetBitsPerComponent(self.CGImage);
+    NSString *des = [NSString stringWithFormat:@"alpha:%@, bitsPerPixel:%@, bitsPerComponent:%@, size:%@", strAlphaInfo, @(bitsPerPixel), @(bitsPerComponent), NSStringFromCGSize(self.size)];
+    return des;
 }
 
 @end
