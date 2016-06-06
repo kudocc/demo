@@ -1,6 +1,6 @@
 # demo list
 
-These demos help a lot :)
+I have transfered to [DemoKit](https://github.com/kudocc/DemoKit).
 
 ## 1.TouchDemo
 
